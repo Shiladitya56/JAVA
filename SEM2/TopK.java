@@ -35,7 +35,17 @@ class TopK
 	    			arr[j] = arr[j-2]^arr[j];
 	    			arr[j-1] = arr[j-1]^arr[j+1];
 	    			arr[j-2] = arr[j-2]^arr[j];
-	            }  
+	            }
+	    		else if(arr[j-1]==arr[j+1])
+	    				if(arr[j-2]<arr[j])
+	    				{
+	    					arr[j-1] = arr[j-1]^arr[j+1];
+	    	    			arr[j-2] = arr[j-2]^arr[j];
+	    	    			arr[j+1] = arr[j-1]^arr[j+1];
+	    	    			arr[j] = arr[j-2]^arr[j];
+	    	    			arr[j-1] = arr[j-1]^arr[j+1];
+	    	    			arr[j-2] = arr[j-2]^arr[j];
+	    				}
 	                          
 	        }  
 	    }
