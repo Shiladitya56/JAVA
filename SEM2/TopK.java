@@ -5,17 +5,16 @@ class TopK
 	private static int fr[];
 	static void bubble(int arr[])
 	{
-		int n = arr.length;  
-	    int temp = 0;  
+		int n = arr.length; 
 	    for(int i=0; i < n; i++)
 	    {  
 	    	for(int j=1; j < (n-i); j++)
 	    	{  
 	    		if(arr[j-1] > arr[j])
 	    		{
-	    			temp = arr[j-1];  
-	                arr[j-1] = arr[j];  
-	                arr[j] = temp;  
+	    			arr[j-1] = arr[j-1]^arr[j];  
+	    			arr[j] = arr[j-1]^arr[j];  
+	    			arr[j-1] = arr[j-1]^arr[j];  
 	            }  
 	                          
 	        }  
@@ -23,20 +22,19 @@ class TopK
 	}
 	static void custombubble(int arr[])
 	{
-		int n = arr.length;  
-	    int temp = 0; int temp1 = 0;  
+		int n = arr.length;
 	    for(int i=0; i < n; i++)
 	    {  
 	    	for(int j=2; j < (n-i-1); j+=2)
 	    	{  
 	    		if(arr[j-1] < arr[j+1])
 	    		{
-	    			temp = arr[j-1];
-	    			temp1 = arr[j-2];
-	                arr[j-1] = arr[j+1];
-	    			arr[j-2] = arr[j];
-	    			arr[j+1] = temp;
-	                arr[j] = temp1;  
+	    			arr[j-1] = arr[j-1]^arr[j+1];
+	    			arr[j-2] = arr[j-2]^arr[j];
+	    			arr[j+1] = arr[j-1]^arr[j+1];
+	    			arr[j] = arr[j-2]^arr[j];
+	    			arr[j-1] = arr[j-1]^arr[j+1];
+	    			arr[j-2] = arr[j-2]^arr[j];
 	            }  
 	                          
 	        }  
