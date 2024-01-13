@@ -89,7 +89,6 @@ import java.util.Scanner;
 class ShareTrader {
     static int maxProfit;
     static void findMaxProfit(int[] p) {
-        //Checking if Enough Prices to Trade
         int n = p.length;
         if (n < 2) {
             System.out.println("Not enough prices to trade.");
@@ -97,9 +96,7 @@ class ShareTrader {
         }
         maxProfit = 0;
         int b1, s1, b2, s2;
-        //Nested Loop for Calculating Maximum Profit
         for (int i = 0; i < n; i++) {
-            //Calculating Profit for Each Pair of Buying and Selling Points
             b1 = p[i];
             for (int j = i + 1; j < n; j++) {
                 s1 = p[j];
@@ -114,7 +111,6 @@ class ShareTrader {
         }
     }
     public static void main(String[] a) {
-        //Sample Test Case 1
         int[] p1 = {10, 22, 5, 75, 65, 80};
         findMaxProfit(p1);
         System.out.println("Input: price[] = {10, 22, 5, 75, 65, 80}");
@@ -122,18 +118,15 @@ class ShareTrader {
         System.out.println("Trader earns " + maxProfit + " as sum of 12 and 75");
         System.out.println("Buy at 10, sell at 22, buy at 5 and sell at 80");
         System.out.println("");
-        //Sample Test Case 2
         int[] p2 = {2, 30, 15, 10, 8, 25, 80};
         findMaxProfit(p2);
         System.out.println("\nInput: price[] = {2, 30, 15, 10, 8, 25, 80}");
         System.out.println("Output: " + maxProfit);
         System.out.println("Trader earns " + maxProfit + " as sum of 28 and 72");
         System.out.println("Buy at price 2, sell at 30, buy at 8 and sell at 80");
-        //User Input Section
         Scanner s = new Scanner(System.in);
         System.out.print("\nEnter the number of stock prices: ");
         int n = 0;
-        //User Input Validation for Number of Stock Prices
         try {
             n = s.nextInt();
         } catch (InputMismatchException e) {
@@ -143,7 +136,6 @@ class ShareTrader {
         int[] u = new int[n];
         System.out.println("Enter the stock prices:");
         for (int i = 0; i < n; i++) {
-            //User Input Validation for Stock Prices
             try {
                 u[i] = s.nextInt();
             } catch (InputMismatchException e) {
